@@ -1,0 +1,157 @@
+/* Animal-Crossing-style interface (modelled on the reference deck: cream speech blob, orange name tag,
+   yellow choice ellipse with a pointing hand, ribbon banner, white panels with a green under-shadow). */
+:root{--ac-cream:#fffbe4;--ac-text:#5f5446;--ac-green:#3fae2a;--ac-orange:#e68a2e;--ac-yellow:#f8ef92;--ac-mark:#f0d800;--ac-shadow:#4d7a60}
+
+/* ---------- start screen ---------- */
+#titleCard{position:absolute;inset:0;width:auto;height:auto;min-height:0;left:0;top:0;z-index:48;border:0;border-radius:0;padding:0;
+  background:#86c9a0 url(ui/tri.svg);background-size:600px 600px;box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;animation:none}
+#titleCard .ac-course{font-size:40px;color:#fff;background:#4aa56c;border-radius:40px;padding:8px 40px;letter-spacing:2px;box-shadow:0 6px 0 #3b8a58}
+.ac-logo{display:flex;flex-direction:column;align-items:center;gap:22px}
+.ac-line{display:flex;gap:46px}
+.ac-word{display:flex;gap:8px}
+.ac-word b{display:grid;place-items:center;width:126px;height:136px;border-radius:30px;border:8px solid #fff;color:#fff;font-size:84px;font-weight:400;
+  text-shadow:0 4px 0 #0003,0 0 8px #0002;box-shadow:0 10px 0 #0002,0 14px 24px #0003}
+#titleCard .ac-presenter{font-size:50px;color:#fff;margin:0;text-shadow:0 4px 0 #0003;letter-spacing:4px}
+.ac-press{font-size:38px;color:#fff;display:flex;align-items:center;gap:16px;text-shadow:0 3px 0 #0003;animation:acPulse 1.6s ease-in-out infinite}
+.ac-press i{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:#fff;color:#5a8f6a;font-style:normal;font-size:30px;text-shadow:none}
+@keyframes acPulse{0%,100%{opacity:1}50%{opacity:.55}}
+#titleCard .title-flower{display:none}
+
+/* ---------- top menu: pills + L/R tabs, ribbon banner ---------- */
+#railHeader{background:#e9f7d9f2;border-bottom:0;box-shadow:0 6px 0 #9fc88a}
+.ac-lr{display:grid;place-items:center;width:46px;height:42px;border-radius:14px 14px 4px 14px;background:#6f8f6c;color:#fff;font-style:normal;font-size:26px;flex:none;margin:0 10px}
+.station{background:#fff;border:0;color:var(--ac-text);border-radius:36px;box-shadow:0 6px 0 #b9d7a8}
+.station .number{background:#e3f2d4;color:#5f9a45}
+.station.active{background:#8fd37a;color:#fff;box-shadow:0 6px 0 #5faa4a}
+.station.active .number{background:#fff;color:#3f9a2a}
+.station.lit,.station.done{background:#fffbe4}
+#sceneBanner{background:#f8df6e;border:0;border-radius:6px;box-shadow:none;padding:12px 70px 12px 54px;
+  clip-path:polygon(0 0,100% 0,96.5% 50%,100% 100%,0 100%,3.5% 50%)}
+#chapterLabel{background:var(--ac-orange);color:#fff;border-radius:30px;padding:6px 18px}
+#bannerTitle{color:#6a5320}
+
+/* ---------- speech blob ---------- */
+#dialogue{background:var(--ac-cream);border:0;border-radius:74px 60px 80px 64px / 56px 70px 62px 66px;box-shadow:0 12px 28px #2a4a3a38}
+#dialogue:before,#dialogue:after{display:none}
+#stage #dialogueText{color:var(--ac-text)}
+#stage.silent #dialogueText,#stage.silent.recall #dialogueText{color:var(--ac-green)}
+#speakerTab{background:var(--ac-orange)!important;color:#5a2c0c;border-radius:30px 36px 32px 24px;padding:10px 36px;font-size:36px;top:-36px;left:54px;transform:rotate(-4deg);box-shadow:none;text-shadow:none}
+#dialogue .dialogue-footer{left:50%;right:auto;bottom:10px;transform:translateX(-50%)}
+#nextButton{background:none;border:0;box-shadow:none;width:auto;height:auto;padding:0;color:var(--ac-orange)}
+#nextButton i{font-size:44px;color:var(--ac-orange);animation:acBob .8s ease-in-out infinite alternate}
+@keyframes acBob{from{translate:0 -6px}to{translate:0 6px}}
+
+/* ---------- choices: yellow ellipse + pointing hand ---------- */
+#choices{left:auto;right:30px;width:880px;height:auto;display:flex;flex-direction:column;gap:6px;align-items:stretch;justify-content:center;
+  background:var(--ac-yellow);border-radius:50% / 48%;padding:44px 90px 46px 150px;box-shadow:0 10px 0 #0001}
+#choices button{position:relative;width:auto;min-height:0;background:none;border:0;border-radius:10px;box-shadow:none;padding:6px 14px;
+  color:var(--ac-text);font-size:44px;justify-content:flex-start;animation:none;text-align:left}
+#choices button:nth-child(2){animation:none}
+#choices .my-tab,#choices .option-index{display:none}
+#choices button span:last-child{padding:0 14px;border-radius:6px}
+#choices button:before{content:'';position:absolute;left:-104px;top:50%;width:92px;height:58px;margin-top:-29px;background:url(ui/hand.svg) center/contain no-repeat;opacity:0;transition:translate .35s}
+#choices button:first-child:before{opacity:1}
+#choices.picked button:first-child:before{opacity:0}
+#choices.picked button:last-child:before{opacity:1}
+#choices button:hover span:last-child{background:var(--ac-mark)}
+#choices button.correct span:last-child{background:var(--ac-mark)}
+#choices button.correct{animation:none;background:none}
+#choices button.incorrect{opacity:.45;filter:none;animation:none}
+
+/* ---------- panels: white with a green under-shadow ---------- */
+#keywordBoard{background:var(--ac-cream);border:0;border-radius:44px 40px 48px 42px;box-shadow:0 10px 0 #4d7a6055,0 16px 26px #0003}
+#meterBox,#emotionBox{background:#fff;border:0;border-radius:40px;box-shadow:0 10px 0 var(--ac-shadow),0 18px 24px #0003;color:var(--ac-text)}
+.route-card{background:#fff;border:0;border-radius:40px;box-shadow:0 10px 0 var(--ac-shadow),0 18px 26px #0003}
+.route-card b{color:var(--ac-green)}
+.route-card span{color:var(--ac-text)}
+.route-pin{background:var(--ac-green);border:6px solid #fff}
+.npc-bubble,.speech,.speech-bubble{background:var(--ac-cream);border:0;color:var(--ac-text);box-shadow:0 6px 0 #0002,0 12px 22px #0003}
+.npc-bubble:after,.speech-bubble:after{border-top-color:var(--ac-cream)}
+.npc-bubble.question,.npc-bubble.comic{color:var(--ac-orange)}
+.listening-dots{background:var(--ac-cream);border:0;color:var(--ac-text)}
+.actor-label{background:var(--ac-cream);color:var(--ac-text)}
+.stamp-message{background:var(--ac-cream);border:0;color:var(--ac-green);box-shadow:0 10px 0 var(--ac-shadow)}
+
+/* ---------- gloomy "what if" + travel + button hints ---------- */
+#whatifText{background:#243438d8;border:0;border-radius:44px;color:#fff}
+#whatif .whatif-heading{background:var(--ac-orange);border:0;color:#fff;border-radius:34px}
+#whatif .whatif-heading:before{color:#fff}
+#travelOverlay{inset:0;background:#86c9a0 url(ui/tri.svg);background-size:600px 600px;backdrop-filter:none}
+#travelOverlay>div{background:var(--ac-cream);border:0;border-radius:70px 56px 76px 60px / 50px 64px 56px 60px;box-shadow:0 12px 0 #4d7a6055}
+#travelText{color:var(--ac-text)}
+#btnHints{position:absolute;right:26px;bottom:6px;display:flex;gap:12px;z-index:44;pointer-events:none}
+#btnHints span{display:flex;align-items:center;gap:8px;background:#e9e6d6;border-radius:30px;padding:3px 18px 3px 4px;font-size:24px;color:#5f5446;box-shadow:0 3px 0 #0002}
+#btnHints i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;font-style:normal;font-size:19px;color:#5f5446;box-shadow:inset 0 0 0 2px #cfc9b2}
+#stage.opening-title #btnHints,#stage.opening-title .ac-lr{display:none}
+/* banner must not cover the speech-ellipse; ribbon sits above the scene banner in the meeting room */
+#stage[data-place="meeting"] #sceneBanner{z-index:15}
+#choices{z-index:46}
+
+#titleCard h2,.finale-banner b,#keywordBoard{color:var(--ac-green)}
+
+/* v15: all speech text is the banner brown; only emphasised keywords are green */
+:root{--ac-text:#6a5320}
+#stage #dialogueText,#stage.silent #dialogueText,#stage.silent.recall #dialogueText,#stage.recall #dialogueText,
+#keywordBoard,.npc-bubble,.npc-bubble.insight,.speech-flip,#choices button,#choices .option-index,.listening-dots,
+.actor-label,#meterBox,#emotionBox,.route-card span,#travelText,#whatifText,.map-label,.pie-percent.shared{color:#6a5320}
+#whatifText{color:#fff}
+/* emphasis keywords stay green */
+.route-card b,#titleCard h2,.stamp-message,.finale-banner b{color:var(--ac-green)}
+
+.kw{color:var(--ac-green);font-weight:400}
+#keywordBoard .kw,#dialogueText .kw{color:var(--ac-green)}
+
+/* v17: keyword texts are green; walker pair on the map is bigger; long bubble text wraps */
+/* only [[marked words]] are green; the rest of the sentence stays brown */
+#keywordBoard,#stage.silent #dialogueText,#stage.silent.recall #dialogueText{color:#6a5320!important}
+#keywordBoard .kw,#dialogueText .kw,#choices .kw,.npc-bubble .kw{color:var(--ac-green)!important}
+#stage.silent #dialogueText{font-weight:400}
+.route-walker{height:210px!important}
+.npc-bubble.problem-bubble{white-space:pre-line;font-size:44px;text-align:center;max-width:760px}
+
+#dialogueText .dt{display:block;text-align:center;white-space:pre-line}
+
+#keywordBoard .dt{display:block;text-align:center;white-space:pre-line;font-weight:400}
+
+/* v18: one text size in choices; no emphasis except green keywords (no bold anywhere) */
+#choices button span.long,#choices button span{font-size:44px!important}
+#stage,#stage *{font-weight:400!important}
+
+/* v19: table items sit above the dialogue box */
+.prop.negotiation-card{top:625px!important}
+.prop.large-lock{top:600px!important}
+.prop.certificate-drop{top:612px!important}
+.prop.medal-sparkle{top:612px!important}
+#stage[data-place="tea"] .prop.shared-plates{top:640px!important}
+.prop.proposal-document{top:660px!important}
+.prop.stamp-strike{top:635px!important}
+.effect.stamp-impact{top:640px!important}
+#stage #sharing-pie.pizza-prop{top:650px!important}
+#stage #pie-hand{top:650px!important}
+.pie-percent{top:470px!important}
+
+/* France / USA recall label: to the left of the animal instead of above its head */
+#stage .actor[data-key="france"] .actor-label,#stage .actor[data-key="usa"] .actor-label{top:calc(42% + 150px);left:0;transform:translate(-105%,-50%)}
+
+.network-lines{stroke:rgba(255,255,255,.6)!important}
+.network-lines circle{fill:rgba(255,255,255,.6)!important;stroke:rgba(255,255,255,.6)!important}
+
+/* map: pair and party emoji sit below the cards so they never cover the text */
+.route-walker{translate:0 130px}
+.route-party{top:610px!important}
+
+/* 50 : 50 looks exactly like the 100% label (ivory fill, brown outline) */
+.pie-percent.shared,#stage .pie-percent.shared{color:#fff3c8!important;-webkit-text-stroke:8px #6b3f1c!important}
+
+/* map: only the walking pair passes behind the text cards */
+.route-walker{z-index:2!important}
+.route-card{z-index:8!important}
+
+
+/* final black screen with a little island in the corner (as page 11 of the reference deck) */
+#endScreen{position:absolute;inset:0;background:#000;z-index:120;display:none;pointer-events:none}
+#endScreen svg{position:absolute;right:44px;bottom:30px}
+#stage.end-black #endScreen{display:block;opacity:1;animation:endFade 1.2s ease}
+@keyframes endFade{from{opacity:0}to{opacity:1}}
+
+.wordmark .leaf-icon{height:50px;width:auto;margin-right:12px;display:block}

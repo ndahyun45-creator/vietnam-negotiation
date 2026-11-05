@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="베트남 협상전략 1~4를 45개의 컷으로 만나는 오프라인 인터랙티브 발표">
+  <title>협상이 시작되는 마을 · 스토리 확장판</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css?v=20261105a">
+  <link rel="stylesheet" href="assets/presentation.css?v=20261105a">
+  <link rel="stylesheet" href="assets/polish.css?v=20261105a">
+  <link rel="stylesheet" href="assets/acnh.css?v=20261105a">
+  <script src="assets/world.js?v=20261105a" defer></script>
+  <script src="assets/backgrounds.js?v=20261105a" defer></script>
+  <script src="assets/data.js?v=20261105a" defer></script>
+  <script src="assets/scene.js?v=20261105a" defer></script>
+  <script src="assets/app.js?v=20261105a" defer></script>
+</head>
+<body>
+  <main id="viewport" aria-label="베트남 협상전략 인터랙티브 발표">
+    <div id="stage">
+      <div id="background" aria-hidden="true"></div>
+      <div id="atmosphere" aria-hidden="true"></div>
+      <header id="railHeader">
+        <div class="wordmark"><img class="leaf-icon" src="assets/ui/leaf-icon.png" alt="" aria-hidden="true"><div>협상이 시작되는 마을<small>국제비즈니스 협상과 계약</small></div></div>
+        <i class="ac-lr">L</i><nav id="maprail" aria-label="마을의 네 장소"></nav><i class="ac-lr">R</i>
+        <div class="toolbar" aria-label="발표 도구"><button id="timerButton" title="타이머 (T)">T</button><button id="notesButton" title="대본 (N)">N</button><button id="soundButton" title="소리 (M)" aria-pressed="false">M<span id="soundState">OFF</span></button><button id="fullButton" title="전체화면 (F)">F</button></div>
+        <div id="walker" aria-hidden="true"><img src="assets/chars/v2/w_walk_side.png" alt=""></div>
+      </header>
+      <section id="sceneBanner"><span id="chapterLabel">프롤로그</span><h1 id="bannerTitle"></h1><small id="cutBadge"></small></section>
+      <div id="titleCard"><small class="ac-course">국제비즈니스협상과계약</small><div class="ac-logo"><div class="ac-line"><span class="ac-word"><b style="background:#2da84a;transform:rotate(-1deg)">베</b><b style="background:#e8477e;transform:rotate(1deg)">트</b><b style="background:#2f80e4;transform:rotate(3deg)">남</b></span><span class="ac-word"><b style="background:#f19a2a;transform:rotate(-2deg)">문</b><b style="background:#8a5cd6;transform:rotate(0deg)">화</b><b style="background:#16a3a3;transform:rotate(2deg)">의</b></span></div><div class="ac-line"><span class="ac-word"><b style="background:#2f80e4;transform:rotate(3deg)">특</b><b style="background:#f19a2a;transform:rotate(-2deg)">징</b><b style="background:#8a5cd6;transform:rotate(0deg)">과</b></span><span class="ac-word"><b style="background:#16a3a3;transform:rotate(2deg)">협</b><b style="background:#2da84a;transform:rotate(-3deg)">상</b><b style="background:#e8477e;transform:rotate(-1deg)">전</b><b style="background:#2f80e4;transform:rotate(1deg)">략</b></span></div></div><p class="ac-presenter">발표자 · 남다현</p><div class="ac-press"><i>A</i> 클릭 또는 Space를 눌러 주세요</div></div>
+      <div id="actors" aria-hidden="true"></div>
+      <div id="furnitureOcclusion" aria-hidden="true"></div>
+      <div id="visualObjects" aria-hidden="true"></div>
+      <div id="effects" aria-hidden="true"></div>
+      <div id="mapLabels" aria-hidden="true"></div>
+      <div id="keywordBoard" aria-live="polite"></div>
+      <aside id="meterBox" hidden aria-live="polite"></aside>
+      <aside id="emotionBox" hidden aria-live="polite"><span>나의 감정</span><div class="thermometer"><i id="emotionFill"></i></div><strong id="emotionState">여유</strong></aside>
+      <section id="choices" hidden aria-label="나의 대사"></section>
+      <section id="dialogue" aria-label="NPC 대화"><div id="speakerTab"></div><div id="dialogueText" aria-live="polite"></div><div class="dialogue-footer"><span id="dialogueHint"></span><button id="nextButton" aria-label="다음 컷"><span id="nextLabel">다음</span><i>▼</i></button></div></section>
+      <footer><span id="cutCounter"></span></footer>
+      <div id="btnHints" aria-hidden="true"><span><i>B</i>이전</span><span><i>A</i>다음</span></div>
+      <aside id="timerPanel" hidden><div class="panel-caption">발표 리허설 타이머</div><strong id="sceneTimer"></strong><div class="timer-track"><i id="sceneTimerFill"></i></div><p id="cutTimer"></p><small id="totalTimer"></small></aside>
+      <aside id="notesPanel" hidden><div class="panel-heading"><span>발표자 대본</span><button id="notesClose" aria-label="대본 닫기">×</button></div><h2 id="notesId"></h2><p id="notesText"></p><small>N 키로 닫기 · 청중 화면에서는 숨겨 주세요</small></aside>
+      <div id="whatif" hidden><div class="whatif-heading">다른 선택을 했다면…</div><div id="whatifVisual"></div><p id="whatifText"></p></div>
+      <div id="travelOverlay" hidden><img id="travelWalker" src="assets/chars/v2/w_walk_side.png" alt=""><div><span id="travelFlower">✿</span><p id="travelText">다음 장소로 걸어가요</p></div></div>
+      <div id="endScreen" aria-hidden="true"><svg viewBox="0 0 80 90" width="110" height="124"><ellipse cx="40" cy="80" rx="26" ry="6" fill="#3fa8d8"/><ellipse cx="40" cy="76" rx="22" ry="5" fill="#f1c27a"/><path d="M18 74c2-22 10-34 22-34s20 12 22 34z" fill="#5db84a"/><path d="M24 70c3-14 8-22 16-22" stroke="#8fd36f" stroke-width="3" fill="none"/><path d="M39 44c0-10 1-18 3-26" stroke="#c68a3a" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="#2fae3f"><path d="M42 18C30 8 16 14 12 24c10-6 20-6 30-6z"/><path d="M42 18C54 6 68 12 72 22c-10-5-20-5-30-4z"/><path d="M42 18C36 6 40-2 46 2c-4 4-3 10-4 16z"/><path d="M42 18c-14 0-22 8-24 18 8-8 16-12 24-18z"/><path d="M42 18c14 0 22 8 24 18-8-8-16-12-24-18z"/></g></svg></div>
+      <div id="blackFade" aria-hidden="true"></div>
+    </div>
+  </main>
+</body>
+</html>

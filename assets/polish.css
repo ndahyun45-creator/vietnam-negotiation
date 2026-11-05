@@ -1,0 +1,404 @@
+/* Polish layer (loaded after presentation.css): readability, poses, recall fights, gloom what-if, map route, finale. */
+
+/* ---------- 1. calmer background so characters and speech stand out ---------- */
+#background:after{background:linear-gradient(180deg,#0f16200f,transparent 22%,transparent 60%,#0b101a38)}
+#atmosphere{background:radial-gradient(ellipse at 50% 42%,transparent 46%,#0b101a50 100%)}
+#stage .actor img{filter:drop-shadow(0 0 3px #fffdf2) drop-shadow(0 8px 6px #0007)}
+#stage .actor.clone img{filter:drop-shadow(0 0 2px #fffdf2) drop-shadow(0 0 9px #fffdf288) drop-shadow(0 10px 8px #0008)}
+#stage .actor.clone2 img{filter:drop-shadow(0 0 2px #fffdf2) drop-shadow(0 0 9px #fffdf288) drop-shadow(0 10px 8px #0008)}
+
+/* ---------- 2. larger, higher-contrast text ---------- */
+#dialogue{top:812px;min-height:218px;padding:44px 64px 20px;background:#fffef6;border-color:#cdbf94;box-shadow:0 9px 0 #7b6a4640,0 14px 34px #0007}
+#dialogue:before{background:#fffef6}
+#dialogue:after{background:#fffef6}
+#dialogueText{font-size:48px;line-height:1.36;min-height:64px;max-width:1380px;color:#3b3b3b;letter-spacing:-.4px}
+#speakerTab{font-size:34px;padding:12px 30px;top:-26px;color:#fff;text-shadow:0 2px 0 #0003}
+#keywordBoard{top:690px;max-height:104px;font-size:42px;color:#3b3b3b;background:#fffef4f6;border-color:#cdbf94}
+#choices{top:590px;height:170px}
+#choices button{font-size:38px;min-height:150px;color:#3b3b3b;background:#fffdf0;border-color:#9fb27d}
+#choices .option-index{font-size:36px;color:#3b3b3b}
+#choices .my-tab{font-size:24px}
+#sceneBanner{background:#fffef4f4}
+#bannerTitle{font-size:36px;color:#3b3b3b}
+#meterBox{font-size:34px;width:330px;color:#3b3b3b;background:#fffef4f4}
+.meter-heartbar{font-size:32px}
+#emotionBox{font-size:32px;color:#3b3b3b;width:250px}
+#emotionBox strong{font-size:30px;color:#3b3b3b}
+.npc-bubble,.speech,.speech-bubble{font-size:44px;color:#3b3b3b;background:#fffef4;border:4px solid #b8a97a;padding:16px 30px;box-shadow:0 8px 0 #0003,0 10px 26px #0005}
+.npc-bubble:after,.speech-bubble:after{border-top-color:#b8a97a;border-width:12px;bottom:-22px}
+.npc-bubble.question{font-size:84px;color:#3b3b3b;padding:4px 34px}
+.npc-bubble.comic{font-size:84px;color:#3b3b3b;border-color:#e5b45a}
+.npc-bubble.small{font-size:68px}
+.npc-bubble.insight,.npc-bubble.speech-flip{font-size:40px;line-height:1.35;width:700px!important;background:#fffbe0}
+.actor-label,.name-tag{font-size:34px;color:#3b3b3b;top:-62px;background:#fffef4}
+.listening-dots{top:296px;font-size:40px;color:#3b3b3b;background:#fffef4;border:4px solid #8fae6e}
+.map-label{font-size:40px;color:#3b3b3b}
+.stamp-message{font-size:56px;color:#3b3b3b;top:250px}
+.effect{width:104px;height:104px}
+.effect.heart,.effect.petal,.effect.sparkle{width:120px;height:120px}
+.effect.sweat,.effect.single-sweat{width:96px;height:96px}
+.pie-percent{left:960px;top:470px;transform:translateX(-50%);font-size:92px;color:#fff3c8;-webkit-text-stroke:8px #6b3f1c;paint-order:stroke fill;animation:none;opacity:1;z-index:20}
+.pie-percent.shared{color:#d8ffd0;-webkit-text-stroke-color:#2f6b3a;animation:pop .5s ease-out}
+
+/* ---------- 3. poses: at-table people only show above the tabletop ---------- */
+#stage .actor.at-table img,#stage .actor.seated img{clip-path:none}
+.actor.at-table .ground-shadow{display:none}
+.actor.standing-presenter img{animation:none}
+#visualObjects .graph-screen{top:262px!important}
+.prop.graph-screen{left:973px!important;width:545px!important;height:190px!important}
+#stage[data-place="meeting"] .prop.wall-clock{left:360px!important}
+.actor[data-view="hi"] img,.actor[data-view="thumb"] img{transform-origin:50% 100%}
+@keyframes idleBob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+#stage .actor.smile img,#stage .actor.gentle-bob img,#stage .actor.team-nod img{animation-duration:1.6s}
+
+/* ---------- 4. recall fights: China -> France -> USA, slow and fierce ---------- */
+#stage .fight-v{animation:fightV 4.8s cubic-bezier(.25,.9,.35,1) both!important}
+#stage .fight-i{animation:fightI 4.8s cubic-bezier(.25,.9,.35,1) both!important}
+#stage .fight-s-pos{--s:1}
+#stage .fight-s-neg{--s:-1}
+@keyframes fightV{
+  0%,9%{translate:0 0;rotate:0deg}
+  12%{translate:calc(var(--s)*90px) 0;rotate:calc(var(--s)*5deg)}
+  24%{translate:calc(var(--s)*62px) 0;rotate:calc(var(--s)*2deg)}
+  32%{translate:calc(var(--s)*-50px) 0;rotate:calc(var(--s)*-4deg)}
+  44%{translate:calc(var(--s)*-26px) 0;rotate:calc(var(--s)*-1deg)}
+  51%{translate:calc(var(--s)*150px) 0;rotate:calc(var(--s)*8deg)}
+  62%{translate:calc(var(--s)*128px) 0;rotate:calc(var(--s)*5deg)}
+  71%{translate:calc(var(--s)*-200px) 0;rotate:calc(var(--s)*-10deg)}
+  80%,100%{translate:calc(var(--s)*-175px) 0;rotate:0deg}
+}
+@keyframes fightI{
+  0%{translate:calc(var(--s)*-1100px) 0;rotate:0deg;opacity:1;scale:1}
+  9%{translate:0 0;rotate:0deg}
+  12%{translate:calc(var(--s)*90px) 0;rotate:calc(var(--s)*3deg)}
+  24%{translate:calc(var(--s)*62px) 0;rotate:calc(var(--s)*1deg)}
+  32%{translate:calc(var(--s)*-60px) 0;rotate:calc(var(--s)*-5deg)}
+  44%{translate:calc(var(--s)*-30px) 0;rotate:0deg}
+  51%{translate:calc(var(--s)*150px) 0;rotate:calc(var(--s)*4deg)}
+  62%{translate:calc(var(--s)*130px) 0;rotate:calc(var(--s)*2deg)}
+  71%{translate:calc(var(--s)*-215px) 0;rotate:calc(var(--s)*-8deg);opacity:1;scale:1}
+  96%{translate:calc(var(--s)*-1750px) -950px;rotate:calc(var(--s)*-1080deg);scale:.3;opacity:1}
+  100%{translate:calc(var(--s)*-1800px) -1000px;rotate:calc(var(--s)*-1100deg);scale:.25;opacity:0}
+}
+#stage.recall #actors{animation:fightShake 4.8s linear both}
+@keyframes fightShake{
+  0%,11%,17%,31%,37%,50%,57%,70%,78%,100%{translate:0 0}
+  12%{translate:12px -8px}14%{translate:-10px 6px}16%{translate:6px -3px}
+  32%{translate:-12px 8px}34%{translate:10px -6px}36%{translate:-5px 3px}
+  51%{translate:16px -10px}53%{translate:-14px 9px}55%{translate:8px -4px}
+  72%{translate:-14px 9px}74%{translate:12px -8px}76%{translate:-6px 3px}
+}
+.fight-pop{position:absolute;transform:translate(-50%,-50%) rotate(-8deg);font-size:104px;line-height:1;color:#ffe45e;-webkit-text-stroke:10px #7a2b16;paint-order:stroke fill;text-shadow:0 10px 0 #4a1a0e70;white-space:nowrap;opacity:0;z-index:30;animation:fightPop 1.1s ease-out both}
+.fight-pop.huger{font-size:160px;color:#ff7a52}
+.fight-pop.win{font-size:120px;color:#fff;-webkit-text-stroke-color:#2f6b3a}
+@keyframes fightPop{0%{opacity:0;scale:.15}14%{opacity:1;scale:1.4}34%{scale:1}82%{opacity:1}100%{opacity:0;scale:1.15}}
+.effect.fight-star{width:190px;height:190px;opacity:0;animation:fightPop .9s ease-out both}
+.effect.fight-sweat{width:110px;height:110px;opacity:0;animation:fightPop 2.2s ease-out both}
+#stage.recall .actor-label{top:-70px}
+
+/* ---------- 5. pizza (shared 50:50) ---------- */
+#stage #sharing-pie.pizza-prop{left:960px!important;top:662px!important;width:320px!important;height:320px!important;transform:translate(-50%,-50%) scaleY(.62)!important;filter:drop-shadow(0 14px 6px #0009);transition:translate 1.3s ease-in-out}
+#sharing-pie svg{width:100%;height:100%;overflow:visible}
+#sharing-pie .pie-slice{transition:translate .9s cubic-bezier(.3,1.4,.5,1)}
+#sharing-pie .pizza-tray{transition:opacity .6s}
+#sharing-pie.pizza-share .pizza-tray{opacity:0}
+#whatifText{white-space:pre-line}
+#sharing-pie.pizza-greedy{translate:300px 0}
+#sharing-pie.pizza-return{translate:0 0}
+#sharing-pie.pizza-share .slice-0,#sharing-pie.pizza-share .slice-1,#sharing-pie.pizza-share .slice-2,#sharing-pie.pizza-share .slice-3{translate:46px 0}
+#sharing-pie.pizza-share .slice-4,#sharing-pie.pizza-share .slice-5,#sharing-pie.pizza-share .slice-6,#sharing-pie.pizza-share .slice-7{translate:-46px 0}
+#stage #pie-hand{animation:none!important;left:1230px!important;top:660px!important;width:190px!important;height:190px!important;transition:translate 1.3s ease-in-out}
+#pie-hand.hand-grab{translate:300px 0}
+#pie-hand.hand-release{translate:0 0}
+
+/* ---------- 6. "다른 선택을 했다면…": dark, rainy, clearly the wrong choice ---------- */
+#whatif{left:0;top:0;width:1920px;height:1080px;border:0;border-radius:0;display:block;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 26%,#46515ff7 0,#1e2530f8 52%,#0b0e14fc 100%);backdrop-filter:none;box-shadow:none}
+#whatif .whatif-heading{position:absolute;left:50%;top:34px;transform:translateX(-50%);margin:0;z-index:6;font-size:58px;color:#ffd9d2;background:#4a1d25f2;border:4px solid #e0766c;border-radius:34px;padding:12px 52px;white-space:nowrap;animation:gloomPulse 1.8s ease-in-out infinite}
+#whatif .whatif-heading:before{content:'✕  ';color:#ff6f61}
+#whatifVisual{position:absolute;inset:0;width:1920px!important;height:1080px!important;filter:none!important}
+#whatifVisual .whatif-scene{position:absolute;left:0;top:0;transform:none!important;width:1920px!important;height:1080px!important}
+#whatifText{position:absolute;left:210px;bottom:52px;width:1500px;margin:0;z-index:7;font-size:52px;line-height:1.3;color:#fff;background:#151a22f4;border:4px solid #8792a1;border-radius:40px;padding:24px 44px;text-align:center;text-shadow:0 2px 0 #0008}
+#whatif small{display:none!important}
+.storm-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.storm-bg .flash{position:absolute;inset:0;background:#e8f0ff;opacity:0;animation:lightning 5s infinite}
+.storm-bg .drizzle{position:absolute;inset:-100px;background-image:linear-gradient(104deg,#b9c8da99 0 2px,transparent 2px);background-size:46px 110px;opacity:.5;animation:drizzle .7s linear infinite}
+@keyframes drizzle{to{background-position:-30px 110px}}
+@keyframes lightning{0%,6%,9%,14%,100%{opacity:0}7%{opacity:.5}8%{opacity:.08}10%{opacity:.4}11%{opacity:0}}
+.storm-layer{position:absolute;inset:0;pointer-events:none;z-index:3}
+.storm-cloud{position:absolute;transform:translateX(-50%);animation:cloudBob 3.6s ease-in-out infinite}
+.storm-cloud svg{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 14px #000a)}
+.storm-cloud .bolt{animation:boltBlink 2.4s steps(1) infinite;transform-origin:50% 0}
+.storm-cloud .rain{position:absolute;top:78%;width:6px;height:46px;border-radius:4px;background:linear-gradient(#d6e6f8,#d6e6f800);animation:rainfall .9s linear infinite}
+.storm-cloud .r1{left:24%}.storm-cloud .r2{left:38%;animation-delay:.25s}.storm-cloud .r3{left:52%;animation-delay:.5s}.storm-cloud .r4{left:66%;animation-delay:.12s}.storm-cloud .r5{left:78%;animation-delay:.4s}
+.storm-cloud.big .rain{height:70px}
+@keyframes rainfall{0%{translate:0 -10px;opacity:0}15%{opacity:1}100%{translate:-14px 190px;opacity:0}}
+@keyframes cloudBob{0%,100%{translate:-10px 0}50%{translate:12px 8px}}
+@keyframes boltBlink{0%,55%{opacity:0}60%,70%{opacity:1}75%,100%{opacity:0}}
+@keyframes gloomPulse{0%,100%{scale:1}50%{scale:1.04}}
+#whatifVisual .gloom-actor img{filter:saturate(.3) brightness(.7) hue-rotate(190deg) contrast(1.05) drop-shadow(0 0 3px #aab6c6aa) drop-shadow(0 14px 12px #000b)}
+#whatifVisual .gloom-actor.red-faced img{filter:saturate(.95) brightness(.88) drop-shadow(0 0 3px #aab6c6aa) drop-shadow(0 14px 12px #000b)}
+#whatifVisual .gloom-actor.grayscale img,#whatifVisual .gloom-actor.frozen img{filter:grayscale(1) brightness(.62) contrast(1.05) drop-shadow(0 14px 12px #000b);opacity:.9}
+#whatifVisual .drooping{animation:droop 2.8s ease-in-out infinite}
+@keyframes droop{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 14px;rotate:-1.6deg}}
+#whatifVisual .gloom-bubble{position:absolute;transform:translate(-50%,-50%);background:#262c36f2;color:#d3dae4;border:4px solid #77818e;border-radius:40px;padding:6px 44px 22px;font-size:110px;line-height:1;z-index:8}
+#whatifVisual .effect{width:130px;height:130px}
+#whatifVisual .effect.big{width:170px;height:170px}
+#whatifVisual .effect.whatif-mark.huge{width:190px;height:190px}
+#whatifVisual .prop{z-index:3}
+#whatifVisual .prop.whatif-card{opacity:.85;filter:saturate(.4) brightness(.8)}
+#whatifVisual .prop.whatif-lock{filter:brightness(.8) saturate(.7)}
+#whatifVisual .face-gauge{position:absolute;left:auto;right:140px;top:230px;text-align:center;font-size:60px;color:#ffb7a8;background:#3a1f25f2;border:4px solid #d46b60;border-radius:30px;padding:14px 34px;z-index:8}
+#whatifVisual .face-gauge small{display:block;font-size:34px;color:#f3d2cb}
+#whatifVisual .face-gauge b{font-weight:400}
+#whatifVisual .solo-bouquet{filter:saturate(.7)}
+#whatifVisual .actor-label{display:none}
+
+/* ---------- 7. closing map: route walk + short phrase per stop ---------- */
+.route-svg{position:absolute;inset:0;width:1920px;height:1080px;overflow:visible}
+.route-base{fill:none;stroke:#fff6d6;stroke-width:11;stroke-linecap:round;stroke-dasharray:1 24;opacity:.9;filter:drop-shadow(0 2px 3px #0008)}
+.route-draw{fill:none;stroke:#f4d35e;stroke-width:13;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;filter:drop-shadow(0 0 8px #ffd98a) drop-shadow(0 3px 3px #0008)}
+.route-pin{position:absolute;transform:translate(-50%,-50%) scale(0);width:86px;height:86px;border-radius:50%;background:#3fae2a;color:#fff;font-size:50px;display:grid;place-items:center;border:6px solid #fff4d6;box-shadow:0 8px 0 #0003,0 12px 26px #0007;transition:transform .55s cubic-bezier(.3,1.7,.5,1)}
+.route-pin.on{transform:translate(-50%,-50%) scale(1)}
+.route-card{position:absolute;transform:translate(-50%,-50%) translateY(24px) scale(.82);opacity:0;min-width:560px;background:#fffef4;border:5px solid #d3a64d;border-radius:34px;padding:16px 30px 18px;text-align:center;box-shadow:0 8px 0 #0003,0 14px 34px #0006;transition:opacity .5s,transform .6s cubic-bezier(.3,1.5,.5,1)}
+.route-card.on{opacity:1;transform:translate(-50%,-50%)}
+.route-card b{display:block;font-weight:400;font-size:52px;color:#3b3b3b;line-height:1.15}
+.route-card span{display:block;font-size:34px;color:#3b3b3b;line-height:1.3;margin-top:4px}
+.route-walker{position:absolute;left:0;top:0;display:flex;align-items:flex-end;height:180px;offset-rotate:0deg;offset-anchor:50% 100%;z-index:3;filter:drop-shadow(0 0 3px #fffdf2) drop-shadow(0 8px 6px #0009)}
+.route-walker img{height:100%;width:auto;margin:0 -16px}
+.route-walker.walking img{animation:walk .25s infinite alternate}
+.route-walker.done img{animation:none}
+#stage.finale #sceneBanner{display:none}
+#stage.finale #atmosphere{background:radial-gradient(ellipse at 50% 55%,transparent 40%,#0b101a40 100%)}
+.finale-banner{position:absolute;left:960px;top:130px;transform:translateX(-50%);text-align:center;background:#fffef4f4;border:6px solid #e0b24c;border-radius:48px;padding:18px 70px 22px;box-shadow:0 10px 0 #0003,0 16px 40px #0006;animation:pop .6s ease-out both;white-space:nowrap}
+.finale-banner small{display:block;font-size:40px;color:#3b3b3b}
+.finale-banner b{display:block;font-weight:400;font-size:60px;color:#3b3b3b;line-height:1.2}
+
+/* tea table props sit above the keyword board */
+.prop.negotiation-card{top:612px!important}
+.prop.large-lock{top:585px!important}
+.prop.certificate-drop{top:575px!important}
+.prop.medal-sparkle{top:575px!important}
+#keywordBoard{top:706px;max-height:98px}
+#stage[data-place="tea"] .prop.shared-plates{top:660px!important}
+
+/* what-if props must stay big (presentation.css shrinks .large-lock) */
+#whatifVisual .prop.whatif-lock{width:380px!important;height:380px!important;left:1280px!important;top:520px!important;opacity:1;filter:brightness(.95) saturate(.9)}
+#whatifVisual .prop.whatif-card{width:210px!important;height:210px!important;opacity:1;filter:brightness(.9) saturate(.8)}
+#whatifVisual .prop.whatif-card>svg,#whatifVisual .prop.whatif-lock>svg{width:100%;height:100%}
+
+#stage.ending #sceneBanner{display:none}
+.route-walker{transition:opacity .6s}
+.route-walker.done{opacity:0}
+.route-card{min-width:520px}
+
+/* title card */
+#titleCard{left:410px;width:1100px;background:#fffef4;border-color:#d3a64d}
+#titleCard small{font-size:42px;color:#3b3b3b;letter-spacing:3px}
+#titleCard h2{font-size:84px;color:#3b3b3b}
+#titleCard p{font-size:48px;color:#3b3b3b;letter-spacing:4px}
+
+/* ---- v5: one text colour (dark green), bold only for key words ---- */
+:root{--ink:#3b3b3b}
+body,#stage{color:#3b3b3b}
+.meter-heading strong,.map-label b,.station,.station .number,#nextButton{color:#3b3b3b}
+#keywordBoard,#bannerTitle,#speakerTab,.route-card b,.finale-banner b,.finale-banner small,#titleCard h2,#titleCard small,.map-label,.stamp-message,.npc-bubble.insight,.npc-bubble.question,.npc-bubble.comic,#choices .option-index,.listening-dots,.actor-label,.meter-heading span{font-weight:700}
+#dialogueText{font-weight:400}
+#dialogueText b{font-weight:700}
+#titleCard p{color:#3b3b3b}
+.fight-pop{display:none!important}
+/* China recall: dragon steps in, gets sent off once (no shaking, no shouting) */
+#stage .china-i{animation:chinaIn 3.6s ease-in-out both!important}
+#stage .china-v{animation:chinaV 3.6s ease-in-out both!important}
+@keyframes chinaIn{0%{translate:700px 0;opacity:0}20%{translate:0 0;opacity:1}55%{translate:0 0}70%{translate:0 0;opacity:1;scale:1}100%{translate:900px -700px;rotate:300deg;scale:.3;opacity:0}}
+@keyframes chinaV{0%,20%{translate:0 0}35%{translate:-40px 0;rotate:-3deg}55%{translate:-40px 0}70%{translate:20px 0;rotate:2deg}100%{translate:0 0;rotate:0deg}}
+
+#stage #dialogueText,#stage.silent #dialogueText,#stage.long-keyword #dialogueText{color:#3b3b3b;opacity:1}
+#stage.silent #dialogueText{font-weight:700}
+
+/* ---- v7: type tweaks ---- */
+/* small text stays regular; bold only for big headings */
+#bannerTitle,#speakerTab,.actor-label,.listening-dots,.meter-heading span,#choices .option-index,.map-label,#keywordBoard,.npc-bubble.insight,.npc-bubble.speech-flip{font-weight:400}
+/* bigger body text */
+#dialogueText{font-size:56px;line-height:1.34}
+#keywordBoard{font-size:46px;max-height:112px}
+#choices button{font-size:44px;line-height:1.28;color:#3b3b3b;min-height:150px}
+#choices .option-index{font-size:40px;color:#3b3b3b}
+.npc-bubble,.speech,.speech-bubble{font-size:48px}
+.npc-bubble.insight,.npc-bubble.speech-flip{font-size:44px}
+.route-card span{font-size:38px}
+.route-card{min-width:560px}
+#whatifText{font-size:56px}
+/* long text grows upward instead of off the screen */
+#dialogue{top:auto;bottom:50px;min-height:218px}
+/* never split a Korean word across lines */
+#dialogueText,#choices button,#keywordBoard,.npc-bubble,.route-card span,#whatifText,.finale-banner,.stamp-message{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+
+/* ---- v8: pastel background set (assets/backgrounds/*-pastel.jpg) ---- */
+/* meeting: table outline hides the lower body of whoever sits behind it */
+#furnitureOcclusion.meeting{clip-path:polygon(548px 545px,565px 495px,610px 462px,660px 452px,1260px 452px,1320px 470px,1370px 520px,1378px 590px,1360px 640px,1300px 680px,700px 672px,600px 640px,550px 590px)!important}
+#furnitureOcclusion.tea{display:none}
+/* whiteboard on the right wall */
+.prop.graph-screen,#visualObjects .graph-screen{left:1530px!important;top:292px!important;width:290px!important;height:190px!important}
+.prop.wall-clock{left:1230px!important;top:250px!important;width:120px!important;height:120px!important}
+.prop.wall-clock.clock-zoom{width:170px!important;height:170px!important;top:260px!important}
+.prop.proposal-document{left:960px!important;top:560px!important;width:130px!important;height:130px!important}
+.prop.stamp-strike{left:1010px!important;top:520px!important;width:120px!important;height:120px!important}
+.effect.stamp-impact{left:1010px!important;top:530px!important}
+.listening-dots{top:250px}
+#stage #sharing-pie.pizza-prop{top:565px!important;width:300px!important;height:300px!important}
+#stage #pie-hand{top:565px!important}
+.pie-percent{top:380px}
+/* tea terrace: our own pastel table, cards sit on it */
+.tea-table-art{position:absolute;left:960px;top:800px;width:1060px;height:230px;transform:translate(-50%,-50%)}
+.tea-table-art svg{width:100%;height:100%;display:block;filter:drop-shadow(0 8px 6px #0004)}
+#stage .actor.seated img,#stage[data-place="tea"] .actor.seated img{clip-path:none}
+.prop.negotiation-card{top:745px!important}
+.prop.large-lock{top:725px!important}
+.prop.certificate-drop{top:735px!important}
+.prop.medal-sparkle{top:735px!important}
+#stage[data-place="tea"] .prop.shared-plates{top:770px!important}
+.prop.tea-pot,.prop.tea-cup{display:none!important}
+/* walker on the map stays inside the screen */
+.route-walker{height:150px}
+.tea-table-art{top:745px}
+.prop.negotiation-card{top:705px!important}
+.prop.large-lock{top:685px!important}
+.prop.certificate-drop{top:695px!important}
+.prop.medal-sparkle{top:695px!important}
+#stage[data-place="tea"] .prop.shared-plates{top:735px!important}
+
+/* v9: one dialogue style - same size, centred */
+#stage #dialogueText,#stage.silent #dialogueText,#stage.long-keyword #dialogueText{font-size:56px;line-height:1.34;font-weight:400;text-align:center}
+#dialogue{min-height:268px}
+
+/* chart sits on the whiteboard face: same size and the same tilt as the board */
+.prop.graph-screen,#visualObjects .graph-screen{left:1403px!important;top:152px!important;width:349px!important;height:242px!important;transform:skewY(7.6deg)!important;transform-origin:0 0!important;border-radius:2px}
+/* trust/face meter must not cover the board */
+#stage[data-place="meeting"] #meterBox{left:60px;right:auto;top:200px}
+
+.bg-swap{animation:bgFade .4s ease both}
+@keyframes bgFade{from{opacity:0}to{opacity:1}}
+
+/* two-line text: balance the line lengths (words are never split) */
+#dialogueText,#choices button>span:last-child,#keywordBoard,.npc-bubble,.route-card span,#whatifText,.finale-banner{text-wrap:balance}
+
+/* v10: chart is mapped onto the whiteboard face with the board's own perspective */
+.prop.graph-screen,#actors .graph-screen,#visualObjects .graph-screen{left:0!important;top:0!important;width:1000px!important;height:600px!important;transform:matrix3d(0.16258565,0.024413763,0,-9.7185814e-05,0.02173873,0.38397075,0,3.6539894e-05,0,0,1,0,1408.785,154.2825,0,1)!important;transform-origin:0 0!important;border-radius:0!important;box-shadow:none!important}
+#actors .graph-screen{z-index:0}
+
+#walker img{transform:none}
+
+
+/* ---- v10 ---- */
+#titleCard h2{font-size:66px;white-space:nowrap}
+#titleCard{width:1180px;left:370px}
+/* walking in from the left, facing right */
+.actor.walk-in-r{animation:walkInR .9s linear both}
+@keyframes walkInR{from{translate:-1000px 0}to{translate:0 0}}
+/* no spinning flower on the travel screens */
+#travelFlower{display:none}
+/* meeting table outline measured from the background art; flowers stay in front of people */
+#furnitureOcclusion.meeting{clip-path:polygon(548px 556px,550px 530px,558px 512px,575px 493px,606px 472px,656px 456px,702px 452px,756px 451px,838px 452px,900px 458px,960px 468px,1042px 477px,1097px 482px,1154px 487px,1226px 496px,1273px 501px,1321px 508px,1354px 522px,1369px 544px,1371px 563px,1359px 601px,1340px 629px,1321px 649px,1250px 668px,1178px 674px,1000px 660px,900px 650px,793px 636px,670px 602px,588px 580px)!important}
+#visualObjects img.flower-front{position:absolute;left:815px;top:395px;width:255px;height:190px;z-index:6;pointer-events:none}
+/* balcony cross-fade */
+#background .bg-old{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;z-index:2;animation:bgOut .6s ease both}
+@keyframes bgOut{from{opacity:1}to{opacity:0}}
+#furnitureOcclusion{transition:opacity .3s}
+/* party at stop 4 */
+.route-walker.done{opacity:1}
+.route-party{position:absolute;left:1330px;top:150px;z-index:5;font-size:100px;line-height:1;pointer-events:none}
+.route-party span{position:absolute;display:block;filter:drop-shadow(0 6px 4px #0006)}
+.route-party .p1{left:0;top:30px;animation:partyBounce .7s ease-in-out infinite alternate}
+.route-party .p2{left:90px;top:-30px;font-size:80px;animation:partyBounce .5s ease-in-out infinite alternate-reverse}
+@keyframes partyBounce{from{translate:0 0;rotate:-8deg}to{translate:0 -22px;rotate:8deg}}
+
+
+/* ---- v11: text colour. Body text is dark grey; green only for emphasised keywords ---- */
+:root{--ink:#3b3b3b}
+body,#stage,#dialogueText,#choices button,#choices .option-index,.npc-bubble,.listening-dots,#meterBox,#emotionBox,.meter-heading strong,.station,#nextButton,#sceneBanner,#bannerTitle,.route-card span,#whatifText,.map-label{color:#3b3b3b}
+/* emphasised keywords stay green */
+#keywordBoard,#stage.silent #dialogueText,.route-card b,#titleCard h2,.stamp-message,.finale-banner b,.npc-bubble.question,.npc-bubble.comic,#speakerTab{color:#3fae2a}
+#speakerTab{color:#fff}
+
+
+/* ---- v12 ---- */
+/* France / USA / China recall text stays grey */
+#stage.recall #dialogueText{color:#3b3b3b}
+/* dialogue box: text centred both ways; the next arrow floats in the corner */
+#dialogue{display:flex;align-items:center;justify-content:center;padding:24px 70px}
+#dialogueText{flex:1;width:100%;min-height:0;display:flex;align-items:center;justify-content:center;text-align:center}
+#dialogue .dialogue-footer{position:absolute;right:34px;bottom:14px;margin:0}
+#stage.no-dialogue #dialogue{display:none}
+/* keyword board: roomier, nicer shape */
+#keywordBoard{padding:24px 56px;min-height:124px;max-height:none;border-radius:34px;border:3px solid #d7c079;box-shadow:0 8px 0 #0002,0 14px 30px #0004;font-size:48px;line-height:1.3;text-align:center}
+/* yellow bubble of cut 4-07 carries the whole message */
+.npc-bubble.speech-flip{width:900px!important;left:1380px!important;top:270px!important;font-size:46px!important;line-height:1.35;white-space:pre-line!important;padding:22px 40px;text-align:center}
+/* long choices keep their line breaks */
+#choices button span:last-child{white-space:pre-line}
+#choices button span.long{font-size:40px}
+/* pizza and the document sit in front of the flowers */
+#visualObjects .pizza-prop,#visualObjects #pie-hand,#visualObjects .proposal-document,#visualObjects .stamp-strike{z-index:9}
+#sharing-pie .pizza-tray{transition:opacity .12s}
+
+#stage .actor.clone img,#stage .actor.clone2 img{filter:drop-shadow(0 0 3px #fffdf2) drop-shadow(0 8px 6px #0007)}
+/* travel screen: the girl walks behind the text card */
+#travelOverlay{overflow:hidden}
+#travelOverlay>div{position:relative;z-index:2}
+#travelWalker{position:absolute;bottom:200px;left:0;height:420px;z-index:1;animation:travelWalk 1.5s linear both,walk .25s infinite alternate}
+@keyframes travelWalk{from{translate:-300px 0}to{translate:2200px 0}}
+#btnHints span:first-child{display:none}
+#travelWalker{scale:1 1}
+/* travel walker: slide with `left` (the bob uses `translate`), in front of the text card */
+#travelWalker{z-index:3;left:-300px;animation:travelSlide 1.5s linear both,walk .25s infinite alternate}
+@keyframes travelSlide{from{left:-300px}to{left:1920px}}
+/* slower walk across the travel screen, with a wiggle (tilt + bounce) */
+#travelWalker{animation:travelSlide 3.2s linear both,walk .28s ease-in-out infinite alternate,wiggle .56s ease-in-out infinite}
+@keyframes wiggle{0%,100%{rotate:-7deg}50%{rotate:7deg}}
+
+
+/* ---- v16: new background set ---- */
+/* meeting classroom: the table is in the foreground; people sit behind it */
+#furnitureOcclusion.meeting{clip-path:polygon(0 925px,200px 885px,450px 857px,700px 843px,960px 838px,1250px 843px,1500px 860px,1720px 890px,1920px 935px,1920px 1080px,0 1080px)!important}
+#furnitureOcclusion.tea{display:block!important;clip-path:polygon(0 1080px,0 900px,60px 820px,200px 742px,400px 700px,700px 674px,960px 664px,1250px 674px,1550px 704px,1750px 745px,1860px 810px,1920px 880px,1920px 1080px)!important}
+/* chalkboard chart: flat rectangle on the board face */
+.prop.graph-screen,#actors .graph-screen,#visualObjects .graph-screen{left:575px!important;top:140px!important;width:930px!important;height:410px!important;transform:none!important;border-radius:6px!important;background:#f6f4e9}
+#stage[data-place="meeting"] .prop.wall-clock{left:1740px!important;top:300px!important;width:130px!important;height:130px!important}
+.prop.wall-clock{left:1740px!important;top:300px!important}
+.prop.wall-clock.clock-zoom{left:1740px!important;top:310px!important}
+.listening-dots{top:620px}
+.prop.proposal-document{left:960px!important;top:940px!important}
+.prop.stamp-strike{left:1010px!important;top:900px!important}
+.effect.stamp-impact{left:1010px!important;top:900px!important}
+#stage #sharing-pie.pizza-prop{top:945px!important}
+#stage #pie-hand{top:945px!important}
+.pie-percent{top:690px}
+#visualObjects .pizza-prop,#visualObjects #pie-hand,#visualObjects .proposal-document,#visualObjects .stamp-strike{z-index:13}
+/* tea table items sit on the table of the new background */
+.tea-table-art{display:none!important}
+.prop.negotiation-card{top:930px!important}
+.prop.large-lock{top:900px!important}
+.prop.certificate-drop{top:910px!important}
+.prop.medal-sparkle{top:910px!important}
+#stage[data-place="tea"] .prop.shared-plates{top:940px!important}
+.route-walker{height:130px}
+
+/* v16b: keep table items above the dialogue box */
+.prop.negotiation-card{top:735px!important}
+.prop.large-lock{top:712px!important}
+.prop.certificate-drop{top:722px!important}
+.prop.medal-sparkle{top:722px!important}
+#stage[data-place="tea"] .prop.shared-plates{top:748px!important}
+.prop.proposal-document{top:760px!important}
+.prop.stamp-strike{top:735px!important}
+.effect.stamp-impact{top:735px!important}
+#stage #sharing-pie.pizza-prop{top:745px!important}
+#stage #pie-hand{top:745px!important}
+.pie-percent{top:560px}
+.route-party{left:240px;top:470px}
+
+/* v16c: lift the meeting table line so people sit above the dialogue box */
+#furnitureOcclusion.meeting{clip-path:polygon(0 925px,200px 885px,450px 857px,700px 843px,960px 838px,1250px 843px,1500px 860px,1720px 890px,1920px 935px,1920px 1080px,0 1080px)!important}
+#stage[data-place="meeting"] #actors .actor.at-table{translate:0 0}
+
+.route-party{left:60px!important;top:470px!important}

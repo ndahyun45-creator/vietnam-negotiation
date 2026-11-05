@@ -1,0 +1,60 @@
+{
+  "kind": "pre-rendered 3D backgrounds",
+  "images": [
+    {
+      "name": "entrance",
+      "file": "assets/backgrounds/entrance-3d.jpg",
+      "managed": "/manus-storage/async-images/BPCZOVMkUeYDlm8D57e2hZ/image-1.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1159096,
+      "sourceFormat": "WEBP"
+    },
+    {
+      "name": "plaza",
+      "file": "assets/backgrounds/plaza-3d.jpg",
+      "managed": "/manus-storage/async-images/BPCZOVMkUeYDlm8D57e2hZ/image-2.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1081540,
+      "sourceFormat": "WEBP"
+    },
+    {
+      "name": "tea",
+      "file": "assets/backgrounds/tea-3d.jpg",
+      "managed": "/manus-storage/async-images/BPCZOVMkUeYDlm8D57e2hZ/image-3.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 814923,
+      "sourceFormat": "WEBP"
+    },
+    {
+      "name": "meeting",
+      "file": "assets/backgrounds/meeting-3d.jpg",
+      "managed": "/manus-storage/async-images/BPCZOVMkUeYDlm8D57e2hZ/image-4.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 769616,
+      "sourceFormat": "WEBP"
+    },
+    {
+      "name": "balcony",
+      "file": "assets/backgrounds/balcony-3d.jpg",
+      "managed": "/manus-storage/async-images/BPCZOVMkUeYDlm8D57e2hZ/image-5.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 965580,
+      "sourceFormat": "WEBP"
+    },
+    {
+      "name": "map",
+      "file": "assets/backgrounds/map-3d.jpg",
+      "managed": "/manus-storage/async-images/eRhYhQqZ0Fth0DPQEyDnF3/image-1.webp",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1270939,
+      "sourceFormat": "WEBP"
+    }
+  ],
+  "originalCharacterImagesChanged": false
+}
